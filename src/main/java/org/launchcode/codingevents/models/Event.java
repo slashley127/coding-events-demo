@@ -25,17 +25,23 @@ public class Event {
     @Positive(message = "Number of attendees must be one or more")
     private Integer numberAttendees;
 
-    public Event(String name, String description, String contactEmail, String location, Integer numberAttendees) {
+    private EventType type;
+
+    public Event(String name, String description, String contactEmail, String location, Integer numberAttendees, EventType type) {
+        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.location = location;
         this.numberAttendees = numberAttendees;
+        this.type=type;
+
+    }
+
+    public Event() {
         this.id = nextId;
         nextId ++;
     }
-
-    public Event() {}
     public String getName() {
         return name;
     }
@@ -78,6 +84,14 @@ public class Event {
 
     public void setNumberAttendees(Integer numberAttendees) {
         this.numberAttendees = numberAttendees;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     @Override
